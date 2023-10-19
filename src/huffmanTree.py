@@ -77,9 +77,8 @@ class HuffmanTree:
                 codigo_binario = self.getCodigoFolha(node.esquerda, letra)
 
             # Se nao achou, verifica no filho direito
-            if codigo_binario == '':
-                if (node.direita):
-                    codigo_binario = self.getCodigoFolha(node.direita, letra)
+            if codigo_binario == '' and node.direita:
+                codigo_binario = self.getCodigoFolha(node.direita, letra)
 
         return codigo_binario
 
