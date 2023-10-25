@@ -71,10 +71,14 @@ import node
 import huffmanTree
 
 # Entrando com o endereço do arquivo
-address = input("Entre com o arquivo para compactar: ")
+addressInput = input("Entre com o arquivo para compactar: ")
+
+#Escolhendo o diretório onde será salvo o texto compactado e descompactado
+addressOutput = input("Digite o diretório onde será salvo o arquivo: ")
+
 
 # Abre o arquivo no modo leitura (r)
-texto = openFile(address + "/texto_para_compactar.txt")
+texto = openFile(addressInput + "/texto_para_compactar.txt")
 
 print("\r\nIniciando o processo de compactacao do arquivo 'texto_para_compactar.txt'...")
 
@@ -104,26 +108,26 @@ texto_compactado = arvore_huffman.compacta(raiz[0], texto)
 print("\r\nSequência de pseudo-bits do texto compactado: " + texto_compactado)
 
 # Salvando arquivo com o conteudo compactado
-#address = input("\r\nEntre com o endereço do arquivo a ser salvo: ")
-saveFile(address + "/texto_compactado.txt", texto_compactado)
-print("\r\nArquivo 'texto_compactado.txt' salvo em " + address)
+#addressOutput = input("Digite o diretório onde será salvo o arquivo: ")
+saveFile(addressOutput + "/texto_compactado.txt", texto_compactado)
+print("\r\nArquivo 'texto_compactado.txt' salvo em " + addressOutput)
 
 
 # Iniciando o processo de descompactacao
 print("\r\n=============================================================")
 
 print("\r\nIniciando o processo de descompactação do arquivo. Abrindo arquivo 'texto_compactado.txt...")
-#address = address + "/texto_compactado.txt"
+#addressOutput = addressOutput + "/texto_compactado.txt"
 
-texto_compactado = openFile(address + "/texto_compactado.txt")
+texto_compactado = openFile(addressOutput + "/texto_compactado.txt")
 print("\r\nCódigo compactado: " + texto_compactado)
 
 texto_descompactado = arvore_huffman.descompacta(raiz[0], texto_compactado)
 print("\r\nTexto descompactado: " + texto_descompactado)
 
-#address = input("Entre com o endereço do arquivo a ser salvo: ")
-saveFile(address + "/texto_descompactado.txt", texto_descompactado)
-print("\r\nArquivo 'texto_descompactado.txt' salvo em " + address)
+#addressOutput = input("Digite o diretório onde será salvo o arquivo: ")
+saveFile(addressOutput + "/texto_descompactado.txt", texto_descompactado)
+print("\r\nArquivo 'texto_descompactado.txt' salvo em " + addressOutput)
 
 print("=============================================================")
 
